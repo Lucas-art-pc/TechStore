@@ -1,0 +1,17 @@
+{
+  "name": "sistema-2.0",
+  "version": "1.0.0",
+  "description": "Projeto MVC",
+  "license": "ISC",
+  "author": "Lucas Medina",
+  "type": "commonjs",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx @tailwindcss/cli -i ./public/styles/input.css -o ./public/styles/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
