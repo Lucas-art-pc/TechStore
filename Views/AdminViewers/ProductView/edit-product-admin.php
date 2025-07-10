@@ -24,6 +24,7 @@ require_once __DIR__ . "/start-html.php";
 
     <form action="edit-product" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto space-y-6">
       <div>
+        <input type="hidden" name="id_prod" id="id_prod" value="<?= $product->getId() ?>">
         <label for="nome_prod" class="block text-sm font-medium text-gray-700">Nome do Produto</label>
         <input type="text" name="nome_prod" id="nome_prod" required value="<?= $product->getNome() ?>"  class="mt-1 w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
       </div>
@@ -59,8 +60,22 @@ require_once __DIR__ . "/start-html.php";
       </div>
 
       <div>
-        <label for="imagem_prod" class="block text-sm font-medium text-gray-700">Imagem do Produto</label>
-        <input type="file" name="image_prod" id="image_prod" accept="image/*" required value="<?= $product->getImagem() ?>" class="mt-1 w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        <label for="image_prod" class="block text-sm font-medium text-gray-700">Nova imagem (opcional)</label>
+        <div class="flex items-center">
+          <input 
+            type="file" 
+            name="image_prod" 
+            id="image_prod" 
+            accept="image/*" 
+            class="mt-1 w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+          >
+          <div>
+            <label for="image_prod" class="block text-sm font-medium text-gray-700">Imagem atual</label>
+            <span><?= $product->getImagem()?> </span>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="text-center">

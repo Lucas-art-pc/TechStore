@@ -16,8 +16,10 @@ class ControllerEditProd implements Controller{
         
         if(isset($_POST['atualiza'])){
 
+
+
             $product = new Products(
-                null,
+                $_POST['id_prod'],
                 $_POST['nome_prod'],
                 $_POST['desc_prod'],
                 $_POST['preco_prod'],
@@ -26,22 +28,25 @@ class ControllerEditProd implements Controller{
                 $_FILES['image_prod']['name']
                 );
 
-            if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
-                $arquivoTmp = $_FILES['image_prod']['tmp_name'];
-                $nomeArquivo = basename(uniqid() . $_FILES['image_prod']['name']);
-                $destino = __DIR__ . "/../../../../public/img/" . $nomeArquivo;
-                
-                
-                if (move_uploaded_file($arquivoTmp, $destino)) {
-                    echo "Imagem enviada com sucesso!";
-                } else {
-                    echo "Erro ao mover a imagem.";
+                if($_FILES['image_prod']['name'] == '') {
+                    
+                }else{
+
+                    if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
+                        $arquivoTmp = $_FILES['image_prod']['tmp_name'];
+                        $nomeArquivo = basename(uniqid() . $_FILES['image_prod']['name']);
+                        $destino = __DIR__ . "/../../../../public/img/" . $nomeArquivo;
+                        move_uploaded_file($arquivoTmp, $destino);
+                        
+                    }
                 }
-            }
+
+            $this->productRepository->editaProduto($product);
+            header('Location: list-product-admin');
         }else{
            $product = $this->productRepository->selecionaProduto($_GET['id_prod']);
         }
-
-            require_once __DIR__ . "/../../../../Views/AdminViewers/ProductView/edit-product-admin.php";
+        
+        require_once __DIR__ . "/../../../../Views/AdminViewers/ProductView/edit-product-admin.php";
     }
 }

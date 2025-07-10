@@ -19,5 +19,6 @@ return [
     'GET|/delete-product' => ControllerDeleteProd::class,
     'GET|/erro-add' => ControllerErroCad::class,
     'POST|/gera-pdf' => ControllerPDF::class,
-    'GET|/edit-product' => ControllerEditProd::class
+    'GET|/edit-product' => ControllerEditProd::class,
+    'POST|/edit-product' => ControllerEditProd::class
 ];
