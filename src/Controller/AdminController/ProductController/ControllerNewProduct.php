@@ -12,6 +12,14 @@ class ControllerNewProduct implements Controller{
     }
 
     public function processaRequisicao(){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if (!isset($_SESSION['id_admin'])) {
+            header('Location: /login-admin');
+            exit;
+        }
         require_once __DIR__ . "/../../../../Views/AdminViewers/ProductView/add-product-admin.php";
     }
 }

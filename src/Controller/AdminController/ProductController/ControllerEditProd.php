@@ -13,6 +13,16 @@ class ControllerEditProd implements Controller{
     }
 
     public function processaRequisicao(){
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if (!isset($_SESSION['id_admin'])) {
+            header('Location: /login-admin');
+            exit;
+        }
+
         
         if(isset($_POST['atualiza'])){
 
@@ -28,9 +38,6 @@ class ControllerEditProd implements Controller{
                 $_FILES['image_prod']['name']
                 );
 
-                if($_FILES['image_prod']['name'] == '') {
-                    
-                }else{
 
                     if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
                         $arquivoTmp = $_FILES['image_prod']['tmp_name'];
@@ -39,8 +46,8 @@ class ControllerEditProd implements Controller{
                         move_uploaded_file($arquivoTmp, $destino);
                         
                     }
-                }
-
+                
+            $product->setImage($nomeArquivo);
             $this->productRepository->editaProduto($product);
             header('Location: list-product-admin');
         }else{

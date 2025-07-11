@@ -13,6 +13,15 @@ class ControllerListProductsAdmin implements Controller{
     }
 
     public function processaRequisicao(){
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if (!isset($_SESSION['id_admin'])) {
+            header('Location: /login-admin');
+            exit;
+        }
         $produtos = $this->productRepository->listaProdutos();
         require_once __DIR__ . "/../../../../Views/AdminViewers/ProductView/list-products-admin.php";
     }
