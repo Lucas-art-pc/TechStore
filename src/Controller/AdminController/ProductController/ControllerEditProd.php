@@ -42,12 +42,13 @@ class ControllerEditProd implements Controller{
                     if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
                         $arquivoTmp = $_FILES['image_prod']['tmp_name'];
                         $nomeArquivo = basename(uniqid() . $_FILES['image_prod']['name']);
+                        $product->setImage($nomeArquivo);
                         $destino = __DIR__ . "/../../../../public/img/" . $nomeArquivo;
                         move_uploaded_file($arquivoTmp, $destino);
                         
                     }
                 
-            $product->setImage($nomeArquivo);
+            
             $this->productRepository->editaProduto($product);
             header('Location: list-product-admin');
         }else{

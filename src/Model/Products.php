@@ -61,7 +61,7 @@ class Products{
     }
 
     public function getPrecoFormatado(){
-        return "R$" . number_format($this->getPreco(),2);
+        return "R$" . number_format($this->getPreco(),2,',','.');
     }
     
     public function getPrecoDolar(){

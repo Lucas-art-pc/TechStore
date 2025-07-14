@@ -14,9 +14,9 @@
       <h1 class="text-2xl font-bold">TechStore</h1>
       <nav class="space-x-4">
         <a href="#" class="hover:text-blue-400">Início</a>
-        <a href="#" class="hover:text-blue-400">Produtos</a>
+        <a href="/list-products" class="hover:text-blue-400">Produtos</a>
         <a href="#" class="hover:text-blue-400">Contato</a>
-        <a href="#" class="hover:text-blue-400">Login</a>
+        <a href="/send-solicit" class="hover:text-blue-400">Cadastre-se</a>
       </nav>
     </div>
   </header>

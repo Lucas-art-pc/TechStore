@@ -6,7 +6,7 @@ require_once "start-html.php";
   <section class="bg-blue-600 text-white text-center py-20">
     <h2 class="text-4xl font-bold mb-4">Tecnologia de Ponta ao seu Alcance</h2>
     <p class="text-lg mb-6">Ofertas imperdíveis em smartphones, notebooks, periféricos e muito mais!</p>
-    <a href="#" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition">Ver Produtos</a>
+    <a href="list-products" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition">Ver Produtos</a>
   </section>
 
   <!-- PRODUTOS EM DESTAQUE -->

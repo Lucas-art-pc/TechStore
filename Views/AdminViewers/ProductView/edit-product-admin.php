@@ -20,7 +20,7 @@ require_once __DIR__ . "/start-html.php";
 
   <!-- Main content -->
   <main class="flex-1 p-8">
-    <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Cadastrar Novo Produto</h1>
+    <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Editar Produto</h1>
 
     <form action="edit-product" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto space-y-6">
       <div>
@@ -66,6 +66,7 @@ require_once __DIR__ . "/start-html.php";
             type="file" 
             name="image_prod" 
             id="image_prod" 
+            value="<?= $product->getImagem()?>"
             accept="image/*" 
             class="mt-1 w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
           >
