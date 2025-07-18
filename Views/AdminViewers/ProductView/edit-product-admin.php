@@ -19,7 +19,7 @@ require_once __DIR__ . "/start-html.php";
   </aside>
 
   <!-- Main content -->
-  <main class="flex-1 p-8">
+  <main class="flex-1 p-8 flex items-center justify-center min-h-screen">
     <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Editar Produto</h1>
 
     <form action="edit-product" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto space-y-6">

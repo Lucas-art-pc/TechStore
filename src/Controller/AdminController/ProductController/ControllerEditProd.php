@@ -24,33 +24,37 @@ class ControllerEditProd implements Controller{
         }
 
         
-        if(isset($_POST['atualiza'])){
+        if (isset($_POST['atualiza'])) {
 
+    // Busca o produto atual para manter a imagem, caso não seja alterada
+    $produtoExistente = $this->productRepository->selecionaProduto($_POST['id_prod']);
+    $imagemAtual = $produtoExistente->getImagem();
 
+    $nomeImagem = $imagemAtual; // valor padrão, caso a imagem não seja enviada
 
-            $product = new Products(
-                $_POST['id_prod'],
-                $_POST['nome_prod'],
-                $_POST['desc_prod'],
-                $_POST['preco_prod'],
-                $_POST['categoria_prod'],
-                $_POST['qtd_prod'],
-                $_FILES['image_prod']['name']
-                );
+    if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
+        $arquivoTmp = $_FILES['image_prod']['tmp_name'];
+        $nomeArquivo = basename(uniqid() . $_FILES['image_prod']['name']);
+        $nomeImagem = $nomeArquivo;
 
+        $destino = __DIR__ . "/../../../../public/img/" . $nomeArquivo;
+        move_uploaded_file($arquivoTmp, $destino);
+    }
 
-                    if (isset($_FILES['image_prod']) && $_FILES['image_prod']['error'] === UPLOAD_ERR_OK) {
-                        $arquivoTmp = $_FILES['image_prod']['tmp_name'];
-                        $nomeArquivo = basename(uniqid() . $_FILES['image_prod']['name']);
-                        $product->setImage($nomeArquivo);
-                        $destino = __DIR__ . "/../../../../public/img/" . $nomeArquivo;
-                        move_uploaded_file($arquivoTmp, $destino);
-                        
-                    }
-                
-            
-            $this->productRepository->editaProduto($product);
-            header('Location: list-product-admin');
+    $product = new Products(
+        $_POST['id_prod'],
+        $_POST['nome_prod'],
+        $_POST['desc_prod'],
+        $_POST['preco_prod'],
+        $_POST['categoria_prod'],
+        $_POST['qtd_prod'],
+        $nomeImagem
+    );
+
+    $this->productRepository->editaProduto($product);
+    header('Location: list-product-admin');
+    exit();
+
         }else{
            $product = $this->productRepository->selecionaProduto($_GET['id_prod']);
         }

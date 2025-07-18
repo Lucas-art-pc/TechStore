@@ -10,9 +10,9 @@ require_once __DIR__ . "/start-html.php";
     </div>
     <nav class="mt-4 space-y-2">
       <a href="/admin/dashboard" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📊 Dashboard</a>
-      <a href="/list-client" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">👤 Clientes</a>
-      <a href="/admin/produtos" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">🛒 Produtos</a>
-      <a href="/admin/pedidos" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Pedidos</a>
+      <a href="/admin/clientes" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">👤 Clientes</a>
+      <a href="/admin/produtos" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">🛒 Produtos</a>
+      <a href="/solicits" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Solicitações</a>
       <a href="/admin/configuracoes" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">⚙️ Configurações</a>
     </nav>
   </aside>
@@ -37,33 +37,39 @@ require_once __DIR__ . "/start-html.php";
 
 
   <main class="flex-1 p-8">
-    <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Painel de Produtos</h1>
+    <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Painel de Clientes</h1>
 
     <div class="overflow-x-auto">
       <table class="min-w-full bg-white shadow-md rounded-xl overflow-hidden">
         <thead class="bg-gray-200 text-gray-700 text-left">
           <tr>
-            <th class="py-3 px-6">ID produto</th>
-            <th class="py-3 px-6">Nome</th>
-            <th class="py-3 px-6">Preço</th>
-            <th class="py-3 px-6">Categoria</th>
-            <th class="py-3 px-6">Quantidade</th>
+            <th class="py-3 px-6">ID Cliente</th>
+            <th class="py-3 px-6">Cliente</th>
+            <th class="py-3 px-6">CPF</th>
+            <th class="py-3 px-6">Email</th>
+            <th class="py-3 px-6">Endereço</th>
             <th class="py-3 px-6 text-center">Ações</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <?php foreach ($produtos as $produto): ?>
+          <?php foreach ($clientes as $cliente): ?>
             <tr class="hover:bg-gray-50">
-              <td name="idProd" value="<?= $produto->getId() ?>" class="py-3 px-6"><?= $produto->getId() ?></td>
-              <td class="py-3 px-6"><?= $produto->getNome() ?></td>
-              <td class="py-3 px-6"><?= $produto->getPrecoFormatado() ?></td>
-              <td class="py-3 px-6"><?= $produto->getCategoria() ?></td>
-              <td class="py-3 px-6"><?= $produto->getQuantidade() ?></td>
+              <td name="idProd" value="<?= $cliente->getIdCli() ?>" class="py-3 text-center"><?= $cliente->getIdCli() ?></td>
+              <td class="py-3 px-6"><?= $cliente->getNomeCli() ?></td>
+              <td class="py-3 px-6"><?= $cliente->getCpfCli() ?></td>
+              <td class="py-3 px-6"><?= $cliente->getEmailCli() ?></td>
+              <td class="py-3 px-2"><?= $cliente->getEnderecoCli() ?></td>
 
-              <td class="py-3 px-6 text-center">
-                <a href="edit-product?id_prod=<?= $produto->getId() ?>" class="text-blue-600 hover:underline mr-4">Editar</a>
-                <button 
-                name="btn-excluir" class="text-red-600 hover:underline" data-id="<?= $produto->getId() ?>">Excluir</button>
+              <td class="py-3 px-2 text-center">
+                <a href="edit-product?id_client=<?= $cliente->getIdCli() ?>" class="text-green-600 hover:underline mr-4">
+                    Ver
+                </a>
+                <a href="edit-product?id_client=<?= $cliente->getIdCli() ?>" class="text-blue-600 hover:underline mr-4">
+                    Editar
+                </a>
+                <button name="btn-excluir" class="text-red-600 hover:underline" data-id="<?= $cliente->getIdCli() ?>">
+                Excluir
+                </button>
           
               </td>
             </tr>

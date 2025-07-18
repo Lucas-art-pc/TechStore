@@ -1,6 +1,8 @@
 <?php
 
 use Src\System\Controller\AdminController\AuthController\ControllerLogin;
+use Src\System\Controller\AdminController\ClientController\ControllerListClient;
+use Src\System\Controller\AdminController\ClientController\SolicitController;
 use Src\System\Controller\SiteController\ClientContoller\ControllerSendSolicit;
 use Src\System\Controller\AdminController\ProductController\ControllerDeleteProd;
 use Src\System\Controller\AdminController\ProductController\ControllerErroCad;
@@ -28,5 +30,7 @@ return [
     'POST|/edit-product' => ControllerEditProd::class,
     'GET|/login-admin' => ControllerLogin::class,
     'POST|/login-admin' => ControllerLogin::class,
-    'GET|/send-solicit' => ControllerSendSolicit::class
+    'GET|/send-solicit' => ControllerSendSolicit::class,
+    'GET|/solicits' => SolicitController::class,
+    'GET|/list-client' => ControllerListClient::class
 ];
