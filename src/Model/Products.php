@@ -65,15 +65,23 @@ class Products{
     }
     
     public function getPrecoDolar(){
-        $dateInicial = date("m-d-Y", strtotime("-7 days"));
+        /*$dateInicial = date("m-d-Y", strtotime("-7 days"));
         $dateFinal = date("m-d-Y");
 
-        $urlAPI = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\''. $dateInicial .'\'&@dataFinalCotacao=\''. $dateFinal .'\'&$top=1&$format=json&$select=cotacaoVenda,dataHoraCotacao';
+        $urlAPI = $urlAPI = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/" .
+          "CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?" .
+          "@dataInicial='" . urlencode($dateInicial) . "'&" .
+          "@dataFinalCotacao='" . urlencode($dateFinal) . "'" .
+          "&" . urlencode('$top=1&$orderby=dataHoraCotacao desc&$format=json&$select=cotacaoVenda,dataHoraCotacao');
 
+
+        
+        
         $data = json_decode(file_get_contents($urlAPI), true);
-        $valuePrice = $data['value'][0]['cotacaoVenda'];
-        $value = number_format($valuePrice, 2);
-        return '$' . number_format($this->precoProd / $value, 2);
+        $valuePrice = $data['value'][0]['cotacaoCompra'];
+
+        $value = number_format($valuePrice, 2);*/
+        return '$' . number_format($this->precoProd / 5.60, 2);
         
     }
 }

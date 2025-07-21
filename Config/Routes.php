@@ -1,8 +1,10 @@
 <?php
 
 use Src\System\Controller\AdminController\AuthController\ControllerLogin;
+use Src\System\Controller\AdminController\ClientController\ControllerDeleteClient;
 use Src\System\Controller\AdminController\ClientController\ControllerListClient;
-use Src\System\Controller\AdminController\ClientController\SolicitController;
+use Src\System\Controller\AdminController\ClientController\ControllerSeeSolicit;
+use Src\System\Controller\AdminController\ClientController\ControllerListSolicit;
 use Src\System\Controller\SiteController\ClientContoller\ControllerSendSolicit;
 use Src\System\Controller\AdminController\ProductController\ControllerDeleteProd;
 use Src\System\Controller\AdminController\ProductController\ControllerErroCad;
@@ -13,6 +15,7 @@ use Src\System\Controller\AdminController\ProductController\ControllerNewProduct
 use Src\System\Controller\AdminController\ProductController\ControllerProcessNewProd;
 use Src\System\Controller\AdminController\ProductController\ControllerPDF;
 use Src\System\Controller\AdminController\ProductController\ControllerEditProd;
+use Src\System\Controller\SiteController\ClientContoller\ControllerProcessSolicit;
 use Src\System\Controller\SiteController\ProductsController\ControllerHomePage;
 
 return [
@@ -31,6 +34,9 @@ return [
     'GET|/login-admin' => ControllerLogin::class,
     'POST|/login-admin' => ControllerLogin::class,
     'GET|/send-solicit' => ControllerSendSolicit::class,
-    'GET|/solicits' => SolicitController::class,
-    'GET|/list-client' => ControllerListClient::class
+    'GET|/solicits' => ControllerListSolicit::class,
+    'GET|/list-client' => ControllerListClient::class,
+    'GET|/solicit' => ControllerSeeSolicit::class,
+    'POST|/process-solicit' => ControllerProcessSolicit::class,
+    'GET|/delete-client' => ControllerDeleteClient::class
 ];

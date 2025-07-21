@@ -11,7 +11,7 @@ require_once __DIR__ . "/start-html.php";
     <nav class="mt-4 space-y-2">
       <a href="/admin/dashboard" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📊 Dashboard</a>
       <a href="/admin/clientes" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">👤 Clientes</a>
-      <a href="/admin/produtos" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">🛒 Produtos</a>
+      <a href="/list-product-admin" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">🛒 Produtos</a>
       <a href="/solicits" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Solicitações</a>
       <a href="/admin/configuracoes" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">⚙️ Configurações</a>
     </nav>
@@ -79,9 +79,6 @@ require_once __DIR__ . "/start-html.php";
     </div>
 
     <div class="mt-6 text-center">
-      <a href="/cadaster-product" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700">
-        + Adicionar Produto
-      </a>
       <form action="gera-pdf" method="post">
         <button type="submit" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 m-8">
           Imprimir relatório PDF
@@ -90,7 +87,7 @@ require_once __DIR__ . "/start-html.php";
     </div>
   </main>
 
-  <script src="/JS/DeleteProdModal.js"></script>
+  <script src="/JS/DeleteCliModal.js"></script>
 <?php 
 
 require_once __DIR__ . "/end-html.php";

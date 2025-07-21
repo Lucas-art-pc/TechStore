@@ -62,4 +62,33 @@ class ClientRepository{
 
         return $allClients;
     }
+
+    public function retornaObjeto($client){
+        return new Client(
+                $client['id_cli'],
+                $client['nome_cli'],
+                $client['email_cli'],
+                $client['cpf_cli'],
+                $client['descricao_cli'],
+                $client['endereco_cli'],
+                $client['senha_cli']
+            );
+    }
+
+    public function buscaSolicitacao(INT $idCli){
+        $sqlSelect = "SELECT * FROM clientes WHERE id_cli = :id_cli";
+        $statement = $this->pdo->prepare($sqlSelect);
+        $statement->bindValue(':id_cli', $idCli);
+        $statement->execute();
+        $data = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $this->retornaObjeto($data);
+    }
+
+    public function deletaCliente(int $id){
+        $sqlDelete = "DELETE FROM clientes WHERE id_cli = :id_cli";
+        $statement = $this->pdo->prepare($sqlDelete);
+        $statement->bindValue(':id_cli', $id, PDO::PARAM_INT);
+        $statement->execute();
+    }
     }

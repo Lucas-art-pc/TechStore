@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . "/start-html.php";
 ?>
-
-
+  <body class="bg-gray-100 flex min-h-screen">
   <!-- Sidebar -->
   <aside class="w-64 bg-white shadow-lg min-h-screen hidden md:block">
     <div class="p-6 border-b">
@@ -11,8 +10,8 @@ require_once __DIR__ . "/start-html.php";
     <nav class="mt-4 space-y-2">
       <a href="/admin/dashboard" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📊 Dashboard</a>
       <a href="/list-client" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">👤 Clientes</a>
-      <a href="/admin/produtos" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">🛒 Produtos</a>
-      <a href="/admin/pedidos" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Pedidos</a>
+      <a href="/list-product-admin" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">🛒 Produtos</a>
+      <a href="/solicits" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Solicitações</a>
       <a href="/admin/configuracoes" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">⚙️ Configurações</a>
     </nav>
   </aside>

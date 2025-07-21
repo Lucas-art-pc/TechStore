@@ -3,7 +3,7 @@
 namespace Src\System\Model;
 class Client{
 
-    private int $idClient;
+    private ?int $idClient;
     private string $nomeClient;
     private string $emailClient;
     private string $cpfClient;

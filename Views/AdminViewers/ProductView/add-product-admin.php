@@ -4,16 +4,15 @@ require_once __DIR__ . "/start-html.php";
 
 
 <body class="bg-gray-100 flex min-h-screen">
-  <!-- Sidebar -->
   <aside class="w-64 bg-white shadow-lg min-h-screen hidden md:block">
     <div class="p-6 border-b">
       <h2 class="text-2xl font-bold text-gray-800">Painel Admin</h2>
     </div>
     <nav class="mt-4 space-y-2">
       <a href="/admin/dashboard" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📊 Dashboard</a>
-      <a href="/admin/clientes" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">👤 Clientes</a>
-      <a href="/admin/produtos" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">🛒 Produtos</a>
-      <a href="/admin/cadastrar-produto" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">➕ Cadastrar Produto</a>
+      <a href="/list-client" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">👤 Clientes</a>
+      <a href="/list-product-admin" class="block px-6 py-3 text-blue-600 font-semibold bg-gray-100 rounded-r-full">🛒 Produtos</a>
+      <a href="/solicits" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">📦 Solicitações</a>
       <a href="/admin/configuracoes" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">⚙️ Configurações</a>
     </nav>
   </aside>
@@ -22,7 +21,7 @@ require_once __DIR__ . "/start-html.php";
   <main class="flex-1 p-8">
     <h1 class="text-3xl font-bold text-gray-700 mb-6 text-center">Cadastrar Novo Produto</h1>
 
-    <form action="add-product" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto space-y-6">
+    <form action="/add-product" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto space-y-6">
       <div>
         <label for="nome_prod" class="block text-sm font-medium text-gray-700">Nome do Produto</label>
         <input type="text" name="nome_prod" id="nome_prod" required  class="mt-1 w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">

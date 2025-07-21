@@ -7,4 +7,3 @@
   <link href="/../styles/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 flex min-h-screen">
